@@ -1,0 +1,95 @@
+//code_by_nigamji_using-Switch Case
+
+#include<stdio.h>
+#include<conio.h>
+int stack[100],n,choice;
+int top =-1;
+void push();
+void pop();
+void display();
+int main()
+{
+	printf("Enter the size of stack\n");
+	scanf("%d",&n);
+	printf("\n\n\t");
+	printf("1.Push 2.Pop 3.Display 4.End\n\n");
+	do
+	{
+		printf("\n\tEnter Your Choice\n\n");
+		scanf("%d",&choice);
+		switch(choice)
+		{	
+			case 1:
+			{
+				push();
+				break;
+			}
+			case 2:
+			{
+				pop();
+				break;
+	 		}
+	        case 3:
+            {
+                display();
+                break;
+            }
+			case 4:
+			{
+				printf("Happy End");
+				break;
+			}
+			default :
+			{
+			printf("\nPlease Enter the valid input\n");
+			}
+	    }
+	}
+	while(choice!=4);
+}
+
+// Function Declarition
+void push()
+{	
+	int p;
+	if(top>=n-1) /*n-size of stack[]*/
+		{
+			printf("stack is Overflow\n");
+		}
+	else
+		{
+			printf("Enter the pushed element\n");
+			scanf("%d",&p);
+			top++;
+			stack[top]=p;			
+		}	
+}
+void pop()
+{
+	if(top<=-1) 
+	{
+		printf("Stack is underflow");
+	}
+	else
+	{
+		printf("stack elememt pop %d",stack[top]);
+		top--;
+	}
+}
+void display()
+{
+	int i;
+	if(top>=0) /*Condition_Fall_when_Top=-1_index*/
+	{
+		printf("\nThe element in stack\n\t");
+		for(i=top;i>=0;i--)
+		{
+			printf("%d\n",stack[i]);
+		}
+	}
+	else
+	{
+		printf("\nThe stack is Empty\n");
+	}
+}
+
